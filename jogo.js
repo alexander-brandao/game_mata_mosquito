@@ -1,17 +1,35 @@
 //definindo dimensões dinamicas do jogo
 
+//variaveis globais
 var altura = 0
 var largura = 0
 var vidas = 1
+var tempo = 10
 
 function ajustaTamanhoPalcoJogo(){
     altura = window.innerHeight
     largura = window.innerWidth
 }
-
 ajustaTamanhoPalcoJogo()
-// definindo posicao dinamica do mosquito
 
+//cronometro do jogo
+var cronometro = setInterval(function(){
+    //decrementando o tempo
+    tempo -= 1
+
+    if(tempo < 0){
+        
+        clearInterval(cronometro)
+        clearInterval(criaMosca)
+        alert('vitoria')
+
+    }else {
+    //relacionando o cronometro na tela, inserindo o texto no SPAN
+    document.getElementById('cronometro').innerHTML = tempo 
+    }
+}, 1000)
+
+// definindo posicao dinamica do mosquito
 function posicaoRandomica(){
 
     //remover o mosquito anterior (caso exista)
@@ -48,7 +66,6 @@ function posicaoRandomica(){
 }
 
 //criando tamanhos dinamicos para o mosquito
-
 function tamanhoAleatorio(){
 
     var classe = Math.floor(Math.random() * 3)
@@ -66,7 +83,6 @@ function tamanhoAleatorio(){
 }
 
 // lados dinamicos para o mosquito
-
 function ladoAleatorio(){
 
     var classe = Math.floor(Math.random() * 2)
