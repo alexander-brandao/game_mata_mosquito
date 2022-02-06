@@ -21,7 +21,7 @@ var cronometro = setInterval(function(){
         
         clearInterval(cronometro)
         clearInterval(criaMosca)
-        alert('vitoria')
+        window.location.href = "vitoria.html"
 
     }else {
     //relacionando o cronometro na tela, inserindo o texto no SPAN
